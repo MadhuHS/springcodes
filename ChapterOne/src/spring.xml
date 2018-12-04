@@ -1,0 +1,40 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="emp" class="com.jspiders.pkg1.Employee">
+
+		<property name="id" value="345"></property>
+		<property name="name" value="Smith"></property>
+		<property name="sal" value="3123"></property>
+		<property name="home" ref="homeaddrs"></property>
+		<property name="work" ref="workaddrs"></property>
+		<property name="allAddress">
+			<list>
+				<ref bean="homeaddrs" />
+				<ref bean="workaddrs" />
+			</list>
+		</property>
+
+	</bean>
+
+	<bean id="homeaddrs" class="com.jspiders.pkg1.Address">
+
+		<property name="state" value="KAR"></property>
+		<property name="city" value="BLR"></property>
+		<property name="pincode" value="560018"></property>
+
+	</bean>
+
+	<bean id="workaddrs" class="com.jspiders.pkg1.Address">
+
+		<property name="state" value="MHR"></property>
+		<property name="city" value="Mumbai"></property>
+		<property name="pincode" value="34244"></property>
+
+	</bean>
+
+</beans>
