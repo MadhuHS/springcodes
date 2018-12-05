@@ -7,22 +7,45 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jspiders.models.User;
 import com.jspiders.services.SignUpService;
 
-@WebServlet(urlPatterns="/signup")
+@WebServlet("/signup")
 public class SignupController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException
 	{
-		System.out.println("Do post() executed");
-		String name = request.getParameter("name");
-		String email = request.getParameter("email");
-		Long phn = Long.parseLong(request.getParameter("phn"));
-		
-		SignUpService s1 = new SignUpService();
-		s1.trySignup(name, email, phn);
-		
+       System.out.println("this is doPost()");
+       User u1 = new User();
+
+       String phone = request.getParameter("phn");
+       Long p1 = Long.parseLong(phone);
+       u1.setName(request.getParameter("name"));
+       u1.setEmail(request.getParameter("email"));
+       u1.setPhone(p1);
+       
+       SignUpService s1 = new SignUpService();
+       
+       boolean res = s1.trySignup(u1);
+       
+       if(res == true)
+       {
+    	     response.sendRedirect("home.jsp");
+    	     
+       }
+       else
+       {
+    	     response.sendRedirect("signup.jsp");
+       }
 	}
 }
+
+
+
+
+
+
+
