@@ -1,6 +1,8 @@
 package com.jspiders.controllers;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,8 +35,9 @@ public class SignupController extends HttpServlet {
        
        if(res == true)
        {
-    	     response.sendRedirect("home.jsp");
-    	     
+    	     RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+    	     request.setAttribute("user", u1);
+    	     rd.forward(request,response);   	     
        }
        else
        {
