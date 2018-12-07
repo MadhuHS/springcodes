@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Sign Up</h1>
-<form action="signup" method="post">
+<form action="trysignup" method="post">
 		<input type="text" name="name" placeholder="name">
 		<input type="text" name="email" placeholder="email"> 
 		<input type="text" name="phone" placeholder="phone"> 
