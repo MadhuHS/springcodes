@@ -8,6 +8,18 @@
 </head>
 <body>
 <h1>Welcome to Spring MVC</h1>
-$msg
+<h2>${msg}</h2>
+<a href="signup"> Click To SignUp</a>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

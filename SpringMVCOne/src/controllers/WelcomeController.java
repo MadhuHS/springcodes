@@ -6,15 +6,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class WelcomeController {
-	
-	@RequestMapping("/welcome")
-	public ModelAndView welcomeFunc()
-	{
-		ModelAndView m1 = new ModelAndView("Welcome");
-		m1.addObject("msg","hello good morning");
-		return m1;
+
+	@RequestMapping("/")
+	public String welcomeFunc() {
+		return "Welcome";
 	}
 
 }
-
-
