@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import models.Address;
 import models.User;
 
 @Controller
@@ -27,11 +28,12 @@ public class SignupController {
 	 */
 
 	
-	 @RequestMapping(value = "/trysignup", method = RequestMethod.POST) public
-	 void trySignUp(@ModelAttribute User u1) 
-	 { System.out.println(u1.getName());
-	    System.out.println(u1.getEmail()); 
-	   System.out.println(u1.getPhn());
+	 @RequestMapping(value = "/trysignup", method = RequestMethod.POST) 
+	 public ModelAndView trySignUp(@ModelAttribute User user) 
+	 { 
+		ModelAndView m1 = new ModelAndView("UserProfile");
+		m1.addObject("user", user);
+		return m1;
 	 }
 	 
 }

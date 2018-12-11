@@ -11,8 +11,15 @@
 <form action="trysignup" method="post">
 		<input type="text" name="name" placeholder="name">
 		<input type="text" name="email" placeholder="email"> 
-		<input type="text" name="phone" placeholder="phone"> 
+		<input type="text" name="phn" placeholder="phone"> 
+		
+		<input type="text" name="userAddress.state" placeholder="state">
+		<input type="text" name="userAddress.city" placeholder="city"> 
+		<input type="text" name="userAddress.pincode" placeholder="pincode"> 
 		<input type="submit">
 	</form>
 </body>
 </html>
+
+
+

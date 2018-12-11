@@ -5,6 +5,15 @@ public class User {
 	String name;
 	String email;
 	Long phn;
+	Address userAddress;
+
+	public Address getUserAddress() {
+		return userAddress;
+	}
+
+	public void setUserAddress(Address userAddress) {
+		this.userAddress = userAddress;
+	}
 
 	public String getName() {
 		return name;
