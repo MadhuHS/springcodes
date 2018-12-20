@@ -1,5 +1,7 @@
 package com.jspiders.pkg1;
 
+import java.util.HashSet;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -17,41 +19,30 @@ public class HibernateSimplified
 		Transaction tx = s1.getTransaction();
 		tx.begin();
 		
-		for (int i = 1; i <= 5; i++) 
-		{
-			User u1 = new User();
-			u1.setId(i);
-			u1.setName("Hibernate user "+i);
-			u1.setBio("bio "+i);
-			s1.save(u1);
-		}
+		User u1 = new User();			
+		u1.setName("Hibernate user");
 		
-		tx.commit();
-		s1.close();
+		Address work = new Address();
+		work.setCity("blr");
+		work.setState("kar");
+		work.setPincode(5600018);
 		
-		s1 = null;
+		Address home = new Address();
+		home.setCity("mys");
+		home.setState("kar");
+		home.setPincode(571332);
 		
-		s1 = sf1.openSession();
+		HashSet<Address> addrSet = new HashSet<Address>();
+		addrSet.add(work);
+		addrSet.add(home);
+		addrSet.add(work);
 		
-		tx = s1.getTransaction();
-		tx.begin();
+		u1.setAddrSet(addrSet);
 		
-		
-		for (int i = 1; i <= 5; i++)
-		{
-			User us1 = s1.get(User.class,i);
-			System.out.println(us1.getName());
-			System.out.println(us1.getId());
-			System.out.println(us1.getBio());
-		}
-		
-		
-		
+	    s1.save(u1);
 		tx.commit();
 	    s1.close();
-		
-		
-		
+
 	}
 }
 
