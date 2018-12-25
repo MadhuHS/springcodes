@@ -9,20 +9,19 @@ import models.User;
 
 public class UserDBOpts 
 {
-	static SessionFactory sf1 = null;
-	static Session s1 = null;
-	static Transaction tx = null;
+	SessionFactory sf1 = null;
+	Session s1 = null;
+	Transaction tx = null;
 	
-	static
+	public UserDBOpts()
 	{
 		sf1 = new Configuration().configure().buildSessionFactory();
 		s1 = sf1.openSession();
-
 		tx = s1.getTransaction();
 	}
 
 	// Create
-	public static void addUser(User u1) {
+	public void addUser(User u1) {
 		tx.begin();
 		s1.save(u1);
 		tx.commit();
@@ -30,7 +29,7 @@ public class UserDBOpts
 	}
 
 	// Read
-	public static void showUserDetails(int id) {
+	public  void showUserDetails(int id) {
 		tx.begin();
 		User u1 = s1.get(User.class, id);
 		System.out.println("Name : " + u1.getName());
@@ -39,7 +38,7 @@ public class UserDBOpts
 	}
 
 	// Update
-	public static void updateUser(String newName, int id) {
+	public  void updateUser(String newName, int id) {
 		tx.begin();
 		User u1 = s1.get(User.class, id);
 		u1.setName(newName);
@@ -49,7 +48,7 @@ public class UserDBOpts
 	}
 
 	//Delete
-	public static void deleteUser(int id) {
+	public  void deleteUser(int id) {
 		tx.begin();
 		User u1 = s1.get(User.class, id);
 		s1.delete(u1);

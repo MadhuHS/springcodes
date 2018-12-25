@@ -34,7 +34,8 @@ public class SignupController {
 	 public ModelAndView trySignUp(@ModelAttribute User user) 
 	 { 
 		ModelAndView m1 = new ModelAndView("UserProfile");
-		UserDBOpts.addUser(user);
+		UserDBOpts u1 = new UserDBOpts();
+		u1.addUser(user);
 		m1.addObject("user", user);
 		return m1;
 	 }
