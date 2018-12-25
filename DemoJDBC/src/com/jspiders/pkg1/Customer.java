@@ -1,27 +1,24 @@
 package com.jspiders.pkg1;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
-@Entity(name = "User_Details")
-public class User {
+@Entity(name = "Cust")
+public class Customer {
 	@Id
-	@Column(name = "UserID")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-
-	@Column(name = "UseName")
+	@GeneratedValue
+	private int custId;
 	private String name;
-
-	public int getId() {
-		return id;
+	
+	public int getCustId() {
+		return custId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setCustId(int custId) {
+		this.custId = custId;
 	}
 
 	public String getName() {
@@ -31,4 +28,5 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 }
